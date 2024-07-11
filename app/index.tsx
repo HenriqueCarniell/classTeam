@@ -1,13 +1,13 @@
-import Groups from "@/src/screens/Groups";
-import { ThemeProvider } from 'styled-components'
-import theme from "@/src/theme/theme";
+import Groups from '@/src/screens/Groups';
+import {useFonts, Roboto_700Bold} from '@expo-google-fonts/roboto'
+import { ActivityIndicator } from 'react-native';
 
 export default function HomeScreen() {
+  let [fontsLoaded] = useFonts({Roboto_700Bold});
+
   return (
     <>
-      <ThemeProvider theme={theme}>
-        <Groups />
-      </ThemeProvider>
+      {fontsLoaded ? <Groups/> : <ActivityIndicator/>}
     </>
   );
 }
