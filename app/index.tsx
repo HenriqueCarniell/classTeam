@@ -1,13 +1,20 @@
-import Groups from '@/src/screens/Groups';
-import {useFonts, Roboto_700Bold} from '@expo-google-fonts/roboto'
-import { ActivityIndicator } from 'react-native';
+import Loading from '@/src/components/Loading';
+import { StatusBar } from 'react-native';
+import { useFonts, Roboto_700Bold } from '@expo-google-fonts/roboto'
+import Home from '@/src/screens/Home';
 
 export default function HomeScreen() {
-  let [fontsLoaded] = useFonts({Roboto_700Bold});
+  let [fontsLoaded] = useFonts({ Roboto_700Bold });
 
   return (
     <>
-      {fontsLoaded ? <Groups/> : <ActivityIndicator/>}
+      <StatusBar
+        barStyle="light-content"
+        backgroundColor="#000000"
+        translucent={true}
+      />
+      {fontsLoaded ? <Home /> : <Loading />}
     </>
+
   );
 }
