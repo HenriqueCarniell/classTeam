@@ -1,4 +1,3 @@
-import React from 'react';
 import { BackButton, BackIcon, Container, Logo } from './styles';
 import LogoIMG from '../../assets/logo.png';
 

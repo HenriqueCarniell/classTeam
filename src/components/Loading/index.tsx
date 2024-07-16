@@ -1,13 +1,12 @@
-import React from "react";
 import { Container, LoadIndicator } from "./styles";
 import { ActivityIndicator } from "react-native";
 
 function Loading() {
-    return ( 
+    return (
         <Container>
-            <ActivityIndicator color="white"/>
+            <ActivityIndicator color="white" />
         </Container>
-     );
+    );
 }
 
 export default Loading;

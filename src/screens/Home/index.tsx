@@ -1,11 +1,12 @@
 import Header from "@/src/components/header";
+import Destaques from "@/src/components/Destaques";
 import { Container } from "./styles";
-import React from "react";
 
 function Home() {
     return (
         <Container>
-            <Header showBackButton={true}/>
+            <Header showBackButton={true} />
+            <Destaques title="Turmas" subtitle="Jogue com a sua turma" />
         </Container>
     );
 }
