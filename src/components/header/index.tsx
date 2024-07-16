@@ -14,7 +14,7 @@ function Header({ showBackButton = false }: Props) {
                 showBackButton &&
 
                 <BackButton>
-                    <BackIcon />
+                    <BackIcon name='arrowleft'/>
                 </BackButton>
             }
 

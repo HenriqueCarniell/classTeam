@@ -1,5 +1,5 @@
 import styled from 'styled-components/native';
-import { GoArrowLeft } from "react-icons/go";
+import arrowleft from 'react-native-vector-icons/AntDesign'
 import theme from '@/src/theme/theme';
 
 export const Container = styled.View`
@@ -20,7 +20,7 @@ export const BackButton = styled.TouchableOpacity`
 
 `;
 
-export const BackIcon = styled(GoArrowLeft)`
-    font-size: 33;
+export const BackIcon = styled(arrowleft)`
+    font-size: 33px;
     color: ${theme.COLORS.WHITE};
 `;
