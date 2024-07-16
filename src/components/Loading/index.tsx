@@ -1,3 +1,4 @@
+import React from "react";
 import { Container, LoadIndicator } from "./styles";
 import { ActivityIndicator } from "react-native";
 

@@ -1,10 +1,15 @@
-import { Container, Logo } from "./styles";
+import React from 'react';
+import { BackButton, BackIcon, Container, Logo } from './styles';
+import LogoIMG from '../../assets/logo.png';
+import { TouchableOpacity } from 'react-native';
 
-import LogoIMG from '../../assets/logo.png'
 
 function Header() {
     return (
         <Container>
+            <BackButton>
+                <BackIcon />
+            </BackButton>
             <Logo source={LogoIMG} />
         </Container>
     );
