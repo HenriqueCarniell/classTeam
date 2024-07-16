@@ -5,7 +5,7 @@ import React from "react";
 function Home() {
     return (
         <Container>
-            <Header />
+            <Header showBackButton={true}/>
         </Container>
     );
 }

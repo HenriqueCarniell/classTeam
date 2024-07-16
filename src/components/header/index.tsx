@@ -1,15 +1,24 @@
 import React from 'react';
 import { BackButton, BackIcon, Container, Logo } from './styles';
 import LogoIMG from '../../assets/logo.png';
-import { TouchableOpacity } from 'react-native';
+
+type Props = {
+    showBackButton?: boolean,
+}
+
+function Header({ showBackButton = false }: Props) {
 
 
-function Header() {
     return (
         <Container>
-            <BackButton>
-                <BackIcon />
-            </BackButton>
+            {
+                showBackButton &&
+
+                <BackButton>
+                    <BackIcon />
+                </BackButton>
+            }
+
             <Logo source={LogoIMG} />
         </Container>
     );

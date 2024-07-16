@@ -7,6 +7,7 @@ export const Container = styled.View`
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    padding: 40px
 `;
 
 export const Logo = styled.Image`
@@ -16,10 +17,10 @@ export const Logo = styled.Image`
 
 export const BackButton = styled.TouchableOpacity`
     flex: 1;
-    
+
 `
 
 export const BackIcon = styled(GoArrowLeft)`
-    size: 36;
+    font-size: 33;
     color: ${theme.COLORS.WHITE};
 `
