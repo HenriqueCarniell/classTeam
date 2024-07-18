@@ -8,7 +8,7 @@ export const Container = styled(TextInput)`
     min-height: 56px;
     max-height: 56px;
     background-color: ${theme.COLORS.GRAY_700};
-    color: ${theme.COLORS.GRAY_700};
+    color: ${theme.COLORS.WHITE};
     border-radius: 6px;
     padding: 16px;
     font-size: ${theme.FONT_SIZE.MD};
