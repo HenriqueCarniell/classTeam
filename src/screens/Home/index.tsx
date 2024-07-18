@@ -8,7 +8,7 @@ import ListEmpty from "@/src/components/ListEmpty";
 import Button from "@/src/components/Button";
 
 function Home() {
-    const [groups, setGroups] = useState<string[]>([])
+    const [groups, setGroups] = useState<string[]>(['jdj'])
 
 
     return (
@@ -32,7 +32,6 @@ function Home() {
             />
             <Button
                 title="Criar nova Turma"
-                type="SECONDARY"
             />
         </Container>
     );
