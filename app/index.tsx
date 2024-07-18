@@ -6,6 +6,7 @@ import Loading from '@/src/components/Loading';
 import theme from '@/src/theme/theme';
 import NewGroup from '@/src/screens/NewGroup';
 import { ThemeProvider } from 'styled-components/native';
+import Players from '@/src/screens/Players';
 
 export default function HomeScreen() {
   let [fontsLoaded] = useFonts({ Roboto_700Bold });
@@ -13,7 +14,7 @@ export default function HomeScreen() {
   return (
     <ThemeProvider theme={theme}>
       <StatusBar backgroundColor={theme.COLORS.GRAY_600} barStyle="light-content" />
-      {fontsLoaded ? <NewGroup /> : <Loading />}
+      {fontsLoaded ? <Players /> : <Loading />}
     </ThemeProvider>
   );
 }
