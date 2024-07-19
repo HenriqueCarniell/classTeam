@@ -19,7 +19,7 @@ function Group() {
 
     return (
         <Container>
-            <Header showBackButton={true} />
+            <Header />
 
             <Destaques title="Turmas" subtitle="Jogue com a sua turma" />
 
