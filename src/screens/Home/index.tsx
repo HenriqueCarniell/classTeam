@@ -7,9 +7,9 @@ import { FlatList } from "react-native";
 import ListEmpty from "@/src/components/ListEmpty";
 import Button from "@/src/components/Button";
 
-function Home() {
-    const [groups, setGroups] = useState<string[]>([])
 
+function Group() {
+    const [groups, setGroups] = useState<string[]>([])
 
     return (
         <Container>
@@ -32,9 +32,10 @@ function Home() {
             />
             <Button
                 title="Criar nova Turma"
+                onPress={() => { }}
             />
         </Container>
     );
 }
 
-export default Home;
+export default Group;
