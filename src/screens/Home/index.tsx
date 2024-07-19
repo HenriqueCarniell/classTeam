@@ -8,7 +8,7 @@ import ListEmpty from "@/src/components/ListEmpty";
 import Button from "@/src/components/Button";
 
 function Home() {
-    const [groups, setGroups] = useState<string[]>(['jdj'])
+    const [groups, setGroups] = useState<string[]>([])
 
 
     return (

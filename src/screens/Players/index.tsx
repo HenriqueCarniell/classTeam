@@ -8,6 +8,8 @@ import { Form } from "./styles";
 import Filter from "@/src/components/Filter";
 import { useState } from "react";
 import PlayerCard from "@/src/components/PlayerCard";
+import ListEmpty from "@/src/components/ListEmpty";
+import Button from "@/src/components/Button";
 
 function Players() {
 
@@ -59,6 +61,21 @@ function Players() {
                         onRemove={() => { }}
                     />
                 )}
+                ListEmptyComponent={() => (
+                    <ListEmpty
+                        message="Não há pessoas nesse time."
+                    />
+                )}
+                showsVerticalScrollIndicator={false}
+                contentContainerStyle={[
+                    { paddingBottom: 100 },
+                    players.length === 0 && { flex: 1 }
+                ]}
+            />
+            <Button
+                title="Remover Turma"
+                type="SECONDARY"
+                onPress={() => setPlayers([])}
             />
         </Container>
     );
