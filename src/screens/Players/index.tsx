@@ -10,18 +10,27 @@ import { useState } from "react";
 import PlayerCard from "@/src/components/PlayerCard";
 import ListEmpty from "@/src/components/ListEmpty";
 import Button from "@/src/components/Button";
+import { useRoute } from "@react-navigation/native";
+
+type RouteParams = {
+    group: string
+}
 
 function Players() {
 
     const [team, setTeam] = useState<string>('');
-    const [players, setPlayers] = useState<string[]>([])
+    const [players, setPlayers] = useState<string[]>([]);
+
+    const route = useRoute()
+
+    const { group } = route.params as RouteParams;
 
     return (
         <Container>
             <Header showBackButton />
 
             <Destaques
-                title="Nome da Turma"
+                title={group}
                 subtitle="adicione a galera e separe os times"
             />
             <Form>

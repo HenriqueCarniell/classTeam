@@ -1,8 +1,9 @@
 import theme from "@/src/theme/theme";
 import styled from "styled-components/native";
 import UsersIcon from 'react-native-vector-icons/Feather'
+import { SafeAreaView } from "react-native-safe-area-context";
 
-export const Container = styled.View`
+export const Container = styled(SafeAreaView)`
     flex: 1;
     background-color: ${theme.COLORS.GRAY_600};
     padding: 24px;
