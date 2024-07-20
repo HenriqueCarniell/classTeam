@@ -6,7 +6,7 @@ import Input from "@/src/components/Input";
 import { useNavigation } from "@react-navigation/native";
 import { useState } from "react";
 
-function NewGroup() {
+function newGroup() {
     const [group, setGroups] = useState<string>('');
 
     const navigation = useNavigation();
@@ -41,4 +41,4 @@ function NewGroup() {
     );
 }
 
-export default NewGroup;
+export default newGroup;

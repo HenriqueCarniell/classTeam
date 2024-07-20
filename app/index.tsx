@@ -10,8 +10,14 @@ export default function HomeScreen() {
 
   return (
     <ThemeProvider theme={theme}>
-      <StatusBar backgroundColor={theme.COLORS.GRAY_600} barStyle="light-content" />
-      {fontsLoaded ? <AppRoutes /> : <Loading />}
+      {fontsLoaded ?
+        <>
+          <AppRoutes />
+          <StatusBar
+            backgroundColor={theme.COLORS.GRAY_600}
+            barStyle="light-content" />
+        </> :
+        <Loading />}
     </ThemeProvider>
   );
 }
