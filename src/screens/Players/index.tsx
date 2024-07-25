@@ -1,12 +1,12 @@
 import Header from "@/src/components/Header";
-import { Alert, FlatList } from "react-native";
+import { Alert, FlatList, TextInput } from "react-native";
 import { Container, HeaderList, NumbersOfPlay } from "./styles";
 import Destaques from "@/src/components/Destaques";
 import ButtonIcon from "@/src/components/ButtonIcon";
 import Input from "@/src/components/Input";
 import { Form } from "./styles";
 import Filter from "@/src/components/Filter";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import PlayerCard from "@/src/components/PlayerCard";
 import ListEmpty from "@/src/components/ListEmpty";
 import Button from "@/src/components/Button";
@@ -16,6 +16,7 @@ import { playerAddByGroup } from "@/src/storage/player/playerAddByGroupo";
 import { playerGetByGroup } from "@/src/storage/player/playersGetByGroup";
 import { playersGetByGroupAndTeam } from "@/src/storage/player/playerGetByGroupAndTeam";
 import { PlayerStorageDTO } from "@/src/storage/player/PlayerStorageDTO";
+import { playerRemoveByGroup } from "@/src/storage/player/playerRemoveByGroup";
 
 type RouteParams = {
     group: string
@@ -30,6 +31,8 @@ function Players() {
 
     const { group } = route.params as RouteParams;
 
+    const newPlayerNameInputRef = useRef<TextInput>(null);
+
     let handleAddPlayer = async () => {
         if (newPlayerName.trim().length === 0) {
             return Alert.alert('Nova pessoa', 'informe o nome da pessoa para adicionar');
@@ -41,8 +44,9 @@ function Players() {
 
         try {
             await playerAddByGroup(newPlayer, group);
-            const players = await playerGetByGroup(group);
-            console.log(players);
+            newPlayerNameInputRef.current?.blur();
+            setNewPlayerName('');
+            fetchPlayersByTeam();
         } catch (error) {
             if (error instanceof AppError) {
                 Alert.alert('Nova pessoa', error.message);
@@ -63,6 +67,16 @@ function Players() {
         }
     }
 
+    const handlePlayerRemove = async (playerName: string) => {
+        try {
+            await playerRemoveByGroup(playerName, group);
+            fetchPlayersByTeam();
+        } catch (error) {
+            console.log(error);
+            Alert.alert('Remover pessoa', 'Não foi possível remover essa pessoa.');
+        }
+    };
+
     useEffect(() => {
         fetchPlayersByTeam();
     }, [team]);
@@ -77,9 +91,13 @@ function Players() {
             />
             <Form>
                 <Input
+                    inputRef={newPlayerNameInputRef}
                     onChangeText={setNewPlayerName}
+                    value={newPlayerName}
                     placeholder="Nome da pessoa"
                     autoCorrect={false}
+                    onSubmitEditing={handleAddPlayer}
+                    returnKeyType="done"
                 />
 
                 <ButtonIcon icon="add" onPress={handleAddPlayer} />
@@ -110,7 +128,7 @@ function Players() {
                 renderItem={({ item }) => (
                     <PlayerCard
                         name={item.name}
-                        onRemove={() => { }}
+                        onRemove={() => handlePlayerRemove(item.name)}
                     />
                 )}
                 ListEmptyComponent={() => (
