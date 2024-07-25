@@ -27,6 +27,10 @@ function Group() {
         }
     }
 
+    let handleOpenGroup = (group: string) => {
+        navigation.navigate('players', { group })
+    }
+
     useFocusEffect(useCallback(() => {
         console.log("UseFocusEffect executou")
         fetchGroups();
@@ -42,7 +46,9 @@ function Group() {
                 data={group}
                 keyExtractor={item => item}
                 renderItem={({ item }) => (
-                    <GroupsCard title={item} />
+                    <GroupsCard title={item} 
+                    onPress={() => handleOpenGroup(item)}
+                    />
 
                 )}
                 contentContainerStyle={group.length === 0 && { flex: 1 }}
@@ -51,6 +57,7 @@ function Group() {
                         message="Que tal cadastrar a primeira turma ?" />
                 )}
             />
+
             <Button
                 title="Criar nova Turma"
                 onPress={handleNewGroup}

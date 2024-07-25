@@ -24,6 +24,7 @@ function NewGroup() {
 
     async function handleNew() {
         try {
+            
             if (group.trim().length === 0) {
                 return Alert.alert('Novo Grupo', 'Informe o nome da turma');
             }
