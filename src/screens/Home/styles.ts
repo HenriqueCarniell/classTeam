@@ -1,6 +1,10 @@
-import styled from 'styled-components/native'
-import theme from '@/src/theme/theme';
+// Bibliotecas externas
 import { SafeAreaView } from "react-native-safe-area-context";
+import styled from 'styled-components/native';
+
+// Arquivos de estilo
+import theme from '@/src/theme/theme';
+
 
 export const Container = styled(SafeAreaView)`
     flex: 1;

@@ -1,13 +1,21 @@
-import Header from "@/src/components/Header";
-import Destaques from "@/src/components/Destaques";
-import { Container } from "./styles";
-import GroupsCard from "@/src/components/GroupCard";
+// Bibliotecas externas
 import { useState, useCallback } from "react";
 import { FlatList } from "react-native";
+import { useNavigation, useFocusEffect } from "@react-navigation/native";
+
+// Componentes do projeto
+import Header from "@/src/components/Header";
+import Destaques from "@/src/components/Destaques";
+import GroupsCard from "@/src/components/GroupCard";
 import ListEmpty from "@/src/components/ListEmpty";
 import Button from "@/src/components/Button";
-import { useNavigation, useFocusEffect } from "@react-navigation/native";
+
+// Arquivos de estilo
+import { Container } from "./styles";
+
+// Utilitários
 import groupsGetAll from "@/src/storage/group/grouGetAll";
+
 
 function Group() {
     const [group, setGroups] = useState<string[]>([]);

@@ -1,7 +1,11 @@
-import theme from "@/src/theme/theme";
-import styled from "styled-components/native";
-import UsersIcon from 'react-native-vector-icons/Feather'
+// Bibliotecas externas
 import { SafeAreaView } from "react-native-safe-area-context";
+import styled from "styled-components/native";
+import UsersIcon from 'react-native-vector-icons/Feather';
+
+// Arquivos de estilo
+import theme from "@/src/theme/theme";
+
 
 export const Container = styled(SafeAreaView)`
     flex: 1;
